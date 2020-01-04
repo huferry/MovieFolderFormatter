@@ -22,8 +22,11 @@ namespace MovieFolderFormatter
                 );
             }
 
-            return titleProcessors.Aggregate(
-                "", (result, processor) => processor.Process(result));
+            return titleProcessors
+                .OrderBy(f => f.Priority)
+                .Aggregate(
+                    title, (result, processor) => processor.Process(result))
+                .Trim();
         }
     }
 

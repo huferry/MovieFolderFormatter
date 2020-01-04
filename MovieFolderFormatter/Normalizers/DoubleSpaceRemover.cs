@@ -9,5 +9,7 @@ namespace MovieFolderFormatter
             ? title
             : Process(processed);
         }
+
+        public int Priority => 1000;
     }
 }
