@@ -1,6 +1,6 @@
 ﻿namespace MovieFolderFormatter
 {
-    public class MovieFolderFormatter
+    public class MovieFolderFormatter : IMovieFolderFormatter
     {
         private readonly IFolderNameParser folderNameParser;
 
@@ -10,7 +10,7 @@
             this.folderNameParser = folderNameParser;
         }
 
-        public string Format(string folderName) 
+        public string Format(string folderName)
         {
             var movie = folderNameParser.Parse(folderName);
             return $"{movie.Title} [{movie.Year}]";
