@@ -8,3 +8,4 @@ jobs:
             - run:
                 name: Restore
                 command: dotnet restore
+                working_directory: MovieFolderFormatter
