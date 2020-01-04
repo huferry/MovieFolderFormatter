@@ -10,10 +10,10 @@ jobs:
                 command: dotnet restore
                 working_directory: MovieFolderFormatter
             - run:
-                name: Tests
+                name: Build
                 command: dotnet build
                 working_directory: MovieFolderFormatter
-                - run:
-                    name: build
-                    command: dotnet test
-                    working_directory: MovieFolderFormatter
+            - run:
+                name: Test
+                command: dotnet test
+                working_directory: MovieFolderFormatter
