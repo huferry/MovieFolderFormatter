@@ -66,6 +66,7 @@ namespace MovieFolderFormatter.Tests
 
             // Assert.
             actual.Should().BeNull();
+            Assert.Fail();
         }
 
     }
