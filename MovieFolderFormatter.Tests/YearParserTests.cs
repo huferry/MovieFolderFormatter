@@ -34,8 +34,8 @@ namespace MovieFolderFormatter.Tests
             var actual = Sut.Parse(folderName);
 
             // Assert.
-            actual.Value.Should().Be($"[{expected}]");
-            actual.Groups[1].Value.Should().Be($"{expected}");
+            actual.year.Should().Be(expected);
+            actual.matchedValue.Should().Be($"[{expected}]");
         }
 
         [TestMethod]
@@ -51,8 +51,8 @@ namespace MovieFolderFormatter.Tests
             var actual = Sut.Parse(folderName);
 
             // Assert.
-            actual.Value.Should().Be($"({expected})");
-            actual.Groups[1].Value.Should().Be($"{expected}");
+            actual.year.Should().Be(expected);
+            actual.matchedValue.Should().Be($"({expected})");           
         }
 
         [TestMethod]
@@ -62,28 +62,12 @@ namespace MovieFolderFormatter.Tests
             var folderName = $"movie title 1993 suffix";
 
             // Act.
-            var actual = Sut.Parse(folderName);
+            Action act = () => Sut.Parse(folderName);
 
             // Assert.
-            actual.Should().BeNull();
+            act.Should().Throw<InvalidOperationException>();
         }
 
     }
 
-    internal class NewClass
-    {
-        public NewClass()
-        {
-        }
-
-        public override bool Equals(object obj)
-        {
-            return obj is NewClass other;
-        }
-
-        public override int GetHashCode()
-        {
-            return 0;
-        }
-    }
 }
